@@ -7,7 +7,7 @@ use std::io;
 use mortal::{Event, Terminal};
 
 #[cfg(unix)]
-use mortal::unix::TerminalExt;
+use mortal::unix::{OpenTerminalExt, TerminalExt};
 
 #[cfg(windows)]
 use mortal::windows::TerminalExt;
@@ -17,6 +17,7 @@ type RawUnit = u8;
 
 #[cfg(windows)]
 type RawUnit = u16;
+
 
 fn main() -> io::Result<()> {
     let mut term = Terminal::from_path("/dev/tty")?;
